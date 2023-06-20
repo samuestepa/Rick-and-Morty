@@ -17,7 +17,7 @@ const Nav = ({onSearch, setAccess}) => {
          <button>
             <Link to = '/home'>Home</Link>
          </button>
-         <button onClick = {handleLogOut}>Log Out</button>
+         <link onClick = {handleLogOut}>Log Out</link>
       </div>
    )
 }
