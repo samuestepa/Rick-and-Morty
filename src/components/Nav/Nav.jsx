@@ -1,11 +1,9 @@
 import SearchBar from '../SearchBar/SearchBar.jsx';
-import { Link, useNavigate } from 'react-router-dom';
-const Nav = ({onSearch, setAccess}) => {
+import { Link } from 'react-router-dom';
 
-   const navigate = useNavigate();
+const Nav = ({onSearch, setAccess}) => {
    const handleLogOut = () => {
-      setAccess(false);
-      navigate('/')
+      setAccess(false)
    }
 
    return (
@@ -17,7 +15,7 @@ const Nav = ({onSearch, setAccess}) => {
          <button>
             <Link to = '/home'>Home</Link>
          </button>
-         <link onClick = {handleLogOut}>Log Out</link>
+         <button onClick = {handleLogOut}>Log Out</button>
       </div>
    )
 }
