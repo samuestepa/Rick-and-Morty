@@ -7,16 +7,16 @@ const Nav = ({onSearch, setAccess}) => {
    }
 
    return (
-      <div>
+      <nav>
          <SearchBar onSearch = { onSearch }/>
-         <button>
-            <Link to = '/about'>About</Link>
-         </button>
-         <button>
-            <Link to = '/home'>Home</Link>
-         </button>
+         <div>
+            <Link to = '/about'> About </Link>
+            <Link to = '/home'> Home </Link>
+            <Link to = '/favorites'> Favorites </Link> 
+         </div>
          <button onClick = {handleLogOut}>Log Out</button>
-      </div>
+         
+      </nav>
    )
 }
 

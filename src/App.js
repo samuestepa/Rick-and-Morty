@@ -1,4 +1,4 @@
-import './App.css';
+   import './App.css';
 import Cards from './components/Cards/Cards.jsx';
 import Nav from './components/Nav/Nav.jsx'
 import About from './components/About/About';
@@ -7,6 +7,7 @@ import Form from './components/Form/Form';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Routes, Route, useLocation, useNavigate} from 'react-router-dom';
+import Favorites from './components/Favorites/Favorites';
 
 const email = 'samuestepa@gmail.com';
 const password = '123456';
@@ -57,6 +58,7 @@ function App() {
             <Route path = '/home' element = {<Cards characters={characters} onClose = { onClose }/>}/>
             <Route path = '/about' element = {<About/>}/>
             <Route path = '/detail/:id' element = {<Deatil/>}/>
+            <Route path= '/favorites' element = { <Favorites/>}/>
          </Routes>
       </div>
    );
