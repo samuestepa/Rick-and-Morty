@@ -28,13 +28,15 @@ function App() {
 
    useEffect(() => {
       !access && navigate('/') 
-   }, [access, navigate]);
+   }, [access]);
 
    const onSearch = (id) => {
       axios(`https://rickandmortyapi.com/api/character/${id}`)
       .then(response => response.data)
       .then((data) => {
          if (data.name) {
+            const char = characters.find((character) => character.id === Number(id));
+            if (char) return alert(`Ese characters id: ${id}, ya existe`);
             setCharacters((oldChars) => [...oldChars, data]);
          } else {
             alert('¡No hay personajes con este ID!');
@@ -47,6 +49,26 @@ function App() {
       setCharacters(charactersFiltered)
    }
 
+   useEffect(() => {
+      const requests = [];
+      for (let num = 22; num < 24; num++) {
+        requests.push(
+          axios.get(`https://rickandmortyapi.com/api/character?page=${num}`)
+        );
+      }
+      Promise.all(requests)
+        .then((results) => {
+          let newCharacters = [];
+          results.map(
+            (chars) => (newCharacters = [...newCharacters, ...chars.data.results])
+          );
+          setCharacters([...newCharacters]);
+          //TODO: para cuando llevemos los characters al store (state global) de redux
+          // dispatch(addCharacter(newCharacters))
+        })
+        .catch((error) => {});
+    }, []);
+    
    return (
       <div className='App'>
          {
@@ -58,7 +80,7 @@ function App() {
             <Route path = '/home' element = {<Cards characters={characters} onClose = { onClose }/>}/>
             <Route path = '/about' element = {<About/>}/>
             <Route path = '/detail/:id' element = {<Deatil/>}/>
-            <Route path= '/favorites' element = { <Favorites/>}/>
+            <Route path=    '/favorites' element = { <Favorites/>}/>
          </Routes>
       </div>
    );

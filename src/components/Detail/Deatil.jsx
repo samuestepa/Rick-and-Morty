@@ -7,15 +7,15 @@ const Deatil = () => {
     const [character, setCharacter] = useState({})
 
     useEffect(() => {
-        axios(`https://rickandmortyapi.com/api/character?page=1/${id}`)
-        .then(response => response.data)
-        .then((data) => {
-           if (data.name) {
-              setCharacter(data);
-           } else {
-              alert('No hay personajes con ese ID');
-           }
-        });
+      axios(`https://rickandmortyapi.com/api/character/${id}`).then(
+        ({ data }) => {
+          if (data.name) {
+            setCharacter(data);
+          } else {
+            alert("No hay personajes con ese ID");
+          }
+        }
+      );  
         return setCharacter({});
      }, [id]);
 
