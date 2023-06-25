@@ -27,7 +27,7 @@ function App() {
    }
 
    useEffect(() => {
-      !access && navigate('/') 
+      !access && navigate('/')   
    }, [access]);
 
    const onSearch = (id) => {
@@ -36,11 +36,15 @@ function App() {
       .then((data) => {
          if (data.name) {
             const char = characters.find((character) => character.id === Number(id));
-            if (char) return alert(`Ese characters id: ${id}, ya existe`);
-            setCharacters((oldChars) => [...oldChars, data]);
-         } else {
+            if (char){
+               return alert(`Ese characters id: ${id}, ya existe`) 
+            } setCharacters([data])
+            } else {
             alert('¡No hay personajes con este ID!');
          }
+      }) 
+      .catch((error) => {
+         console.log(error)
       });
    }
 
@@ -79,12 +83,12 @@ function App() {
             <Route path = '/' element = {<Form login = { login }/>}/> 
             <Route path = '/home' element = {<Cards characters={characters} onClose = { onClose }/>}/>
             <Route path = '/about' element = {<About/>}/>
-            <Route path = '/detail/:id' element = {<Deatil/>}/>
+            <Route path = '/home/detail/:id' element = {<Deatil/>}/>
             <Route path=    '/favorites' element = { <Favorites/>}/>
          </Routes>
       </div>
    );
-}
+}  
 
 export default App;
 

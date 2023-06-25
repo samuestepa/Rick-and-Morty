@@ -25,7 +25,7 @@ const Form = ({ login }) => {
         event.preventDefault();
         login(userData);
     }
-
+//comprobacion de errores en formulario 
     return (
         <form onSubmit = {handleSubmit}>
             <label htmlFor="email">Email</label>
