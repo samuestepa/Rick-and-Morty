@@ -29,15 +29,20 @@ import style from '../../styles/Card.css'
 
    return (
       <div className='containter'>
-         <button onClick={() => onClose(id)}>X</button>
-         <button onClick={handleFavorite}>{isFav ? '❤️' : '🤍'}</button>
          <Link to = {`detail/${id}`}>
-         <h2>{name}</h2>
+            <h2 className='name'>{name}</h2>
          </Link>
-         <h2>Species: {species}</h2>
-         <h2>Gender: {gender}</h2>
-         <img src={image} alt={name}
-         />
+         <div className='detail'>
+            <h2>Species: {species}</h2>
+            <h2>Gender: {gender}</h2>
+         </div>
+         <img src={image} alt={name} className='img'/>
+         <div className='button'>
+            <button onClick={() => onClose(id)}>X</button>
+         </div>
+         <div className='simbols'>
+            <button onClick={handleFavorite}>{isFav ? '❤️' : '🤍'}</button>
+         </div>
       </div>
    );
 }

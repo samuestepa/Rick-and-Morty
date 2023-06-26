@@ -19,13 +19,13 @@ const Favorites = ({ myFavorites }) => { //myFavorites viene de mapStateToProps
     }
 
     return (
-        <div>
-            <select onChange={handleOrder}>
+        <div className='container'>
+            <select onChange={handleOrder} className='organization'>
                 <option value= 'A'>Ascendente</option>
                 <option value= 'B'>Descendente</option>
             </select>
 
-            <select onChange={handleFilter}>
+            <select onChange={handleFilter} className='detalis'>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
                 <option value="Genderless">Genderless</option>

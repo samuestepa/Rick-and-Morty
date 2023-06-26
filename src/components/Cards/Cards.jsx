@@ -2,7 +2,7 @@ import Card from '../Card/Card';
 import style from '../../styles/Cards.css'
 
 export default function Cards({characters, onClose}) {
-   return <div>{
+   return <div className='containter'>{
             characters?.map(({id, name, status, species, gender, origin, image}) => {
               return <Card 
               key = {id} 
