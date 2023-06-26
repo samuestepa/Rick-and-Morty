@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { addFav, removeFav } from '../../redux/actions';
 import { connect } from 'react-redux';
 import { useState, useEffect } from 'react';  
+import style from '../../styles/Card.css'
 
  function Card({onClose, id, name, species, gender, image, addFav, removeFav, myFavorites}) {
 
@@ -27,7 +28,7 @@ import { useState, useEffect } from 'react';
    }, [myFavorites]);
 
    return (
-      <div>
+      <div className='containter'>
          <button onClick={() => onClose(id)}>X</button>
          <button onClick={handleFavorite}>{isFav ? '❤️' : '🤍'}</button>
          <Link to = {`detail/${id}`}>

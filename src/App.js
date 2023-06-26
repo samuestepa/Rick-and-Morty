@@ -61,18 +61,18 @@ function App() {
         );
       }
       Promise.all(requests)
-        .then((results) => {
-          let newCharacters = [];
-          results.map(
+      .then((results) => {
+         let newCharacters = [];
+         results.map(
             (chars) => (newCharacters = [...newCharacters, ...chars.data.results])
-          );
-          setCharacters([...newCharacters]);
-          //TODO: para cuando llevemos los characters al store (state global) de redux
-          // dispatch(addCharacter(newCharacters))
-        })
-        .catch((error) => {});
-    }, []);
-    
+            );
+            setCharacters([...newCharacters]);
+            //TODO: para cuando llevemos los characters al store (state global) de redux
+            // dispatch(addCharacter(newCharacters))
+         })
+         .catch((error) => {});
+      }, []);
+      
    return (
       <div className='App'>
          {

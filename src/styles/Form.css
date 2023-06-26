@@ -1,0 +1,37 @@
+.cajaForm{
+    background-color: #C0C0C0;
+    border-radius: 3px;
+    color: #999; 
+    border-color: black;
+    margin: 10px auto;
+    width: 30%;
+    height: 50%;
+    display: flex;
+    justify-content: center; /* Alinea horizontalmente al centro */
+    align-items: center; /* Alinea verticalmente al centro */
+    flex-direction: column; /* Cambia la dirección del flexbox a vertical */
+
+}
+
+form{
+    width: 100%;
+    flex-direction: column; /* Cambia la dirección del flexbox a vertical */
+    align-items: center; /* Alinea los elementos hijos al centro horizontal */
+}
+
+.input{
+    width: auto;
+    height: auto;
+    outline: none;
+    padding: 15px;
+}
+
+.button {
+    border-radius: 20px; /* Ajusta el valor según la forma deseada */
+    display: inline-block;
+    padding: 10px 20px; /* Ajusta el valor según el tamaño deseado */
+    text-decoration: none;
+    background-color: black;
+    color: white;
+    margin-top: 10px; /* Agrega margen superior para separar del último input */
+}

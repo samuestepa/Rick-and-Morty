@@ -1,4 +1,5 @@
 import Card from '../Card/Card';
+import style from '../../styles/Cards.css'
 
 export default function Cards({characters, onClose}) {
    return <div>{
