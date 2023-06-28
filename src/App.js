@@ -1,13 +1,13 @@
    import './App.css';
-import Cards from './components/Cards/Cards.jsx';
-import Nav from './components/Nav/Nav.jsx'
-import About from './components/About/About';
-import Deatil from './components/Detail/Deatil';
-import Form from './components/Form/Form';
+import Cards from './Client/components/Cards/Cards';
+import Nav from './Client/components/Nav/Nav.jsx'
+import About from './Client/components/About/About';
+import Deatil from './Client/components/Detail/Deatil';
+import Form from './Client/components/Form/Form';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Routes, Route, useLocation, useNavigate} from 'react-router-dom';
-import Favorites from './components/Favorites/Favorites';
+import Favorites from './Client/components/Favorites/Favorites';
 
 const email = 'samuestepa@gmail.com';
 const password = '123456';
@@ -31,7 +31,7 @@ function App() {
    }, [access]);
 
    const onSearch = (id) => {
-      axios(`https://rickandmortyapi.com/api/character/${id}`)
+      axios(`http://localhost:3001/rickandmorty/character/${id}`)
       .then(response => response.data)
       .then((data) => {
          if (data.name) {
@@ -72,9 +72,11 @@ function App() {
          })
          .catch((error) => {});
       }, []);
+
       
    return (
       <div className='App'>
+         <div className='particles-containter'></div>
          {
             location.pathname !== '/' && <Nav onSearch = { onSearch } access = {access} setAccess = {setAccess}/>
          }
